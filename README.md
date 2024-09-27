@@ -28,13 +28,13 @@ A platform to upload and view files with various functionalities including user 
    git clone https://github.com/yourusername/file-manager-app.git
    cd file-manager-app
 2. Install dependencies:
-
+   ```bash
    npm install
 3. Set up environment variables:
 
    The required environment variables should be stored in a file named .env
 4. Start the application:
-
+   ```bash
    npm start
 
 ## Author
