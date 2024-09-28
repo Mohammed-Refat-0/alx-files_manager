@@ -9,3 +9,5 @@ const app = express();
 app.use('/', routes);
 
 app.listen(port);
+
+export default app;
