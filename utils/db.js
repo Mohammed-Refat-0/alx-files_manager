@@ -17,33 +17,24 @@ class DBClient {
     });
   }
 
-  async isAlive() {
-    try {
-      await this.client.db().admin().ping();
-      return true;
-    } catch (err) {
-      return false;
-    }
+  isAlive() {
+    return this.client.isConnected();
   }
 
   async nbUsers() {
-    try {
-      const usersCollection = this.db.collection('users');
-      return await usersCollection.countDocuments();
-    } catch (err) {
-      console.error('Failed to count users', err);
-      return 0;
-    }
+    return this.client.db().collection('users').countDocuments();
   }
 
   async nbFiles() {
-    try {
-      const filesCollection = this.db.collection('files');
-      return await filesCollection.countDocuments();
-    } catch (err) {
-      console.error('Failed to count files', err);
-      return 0;
-    }
+    return this.client.db().collection('files').countDocuments();
+  }
+
+  async usersCollection() {
+    return this.client.db().collection('users');
+  }
+
+  async filesCollection() {
+    return this.client.db().collection('files');
   }
 }
 
