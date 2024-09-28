@@ -1,10 +1,10 @@
-import mongodb from 'mongodb';
+// MongoDB client
+
 // eslint-disable-next-line no-unused-vars
 import Collection from 'mongodb/lib/collection';
 
-/**
- * MongoDB client
- */
+const { MongoClient } = require('mongodb');
+
 class DBClient {
   /**
    * Creates new DBClient instance
@@ -15,7 +15,7 @@ class DBClient {
     const database = process.env.DB_DATABASE || 'files_manager';
     const dbURL = `mongodb://${host}:${port}/${database}`;
 
-    this.client = new mongodb.MongoClient(dbURL, { useUnifiedTopology: true });
+    this.client = new MongoClient(dbURL, { useUnifiedTopology: true });
     this.client.connect();
   }
 
